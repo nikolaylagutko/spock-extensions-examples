@@ -5,6 +5,11 @@ apply from: 'ide-java.gradle'
 
 repositories {
 	jcenter()
+	
+	maven {
+		name 'JFrog OSS snapshot repo'
+		url  'https://oss.jfrog.org/oss-snapshot-local/'
+	}
 }
 
 sourceCompatibility = 1.8
