@@ -16,7 +16,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-	testCompile(group: 'org.gerzog',	name: 'spock-modelcitizen',	version: '0.1.0-SNAPSHOT')
+	testCompile	group: 'org.gerzog.spock-extensions',	name: 'spock-modelcitizen',	version: '0.1.0-SNAPSHOT'
+	testCompile	group: 'org.gerzog.spock-extensions',	name: 'spock-injectmocks',	version: '0.1.0-SNAPSHOT'
 }
 
 task wrapper(type: Wrapper) {
