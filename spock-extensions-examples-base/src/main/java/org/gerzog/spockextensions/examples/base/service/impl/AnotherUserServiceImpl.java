@@ -13,22 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.gerzog.spockextensions.examples.base.repository.impl;
+package org.gerzog.spockextensions.examples.base.service.impl;
 
 import org.gerzog.spockextensions.examples.base.entity.User;
 import org.gerzog.spockextensions.examples.base.repository.IUserRepository;
-import org.springframework.stereotype.Repository;
+import org.gerzog.spockextensions.examples.base.service.IUserService;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-@Repository
-public class UserRepositoryImpl implements IUserRepository {
+@Service
+public class AnotherUserServiceImpl implements IUserService {
+
+	private IUserRepository userRepository;
+
+	@Required
+	public void setUserRepository(final IUserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 
 	@Override
 	public User findUser() {
-		return null;
+		return userRepository.findUser();
 	}
 
 }

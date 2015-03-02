@@ -20,6 +20,10 @@ subprojects {
 		testCompile group: 'org.spockframework',	name: 'spock-core',	version: spockVersion
 		testCompile group: 'junit',					name: 'junit',		version: junitVersion
 		testCompile group: 'org.codehaus.groovy',	name: 'groovy-all',	version: groovyVersion
+		
+		if (project != project(':spock-extensions-examples-base')) {
+			compile project(':spock-extensions-examples-base')
+		}
 	}
 	
 	configurations.all {
