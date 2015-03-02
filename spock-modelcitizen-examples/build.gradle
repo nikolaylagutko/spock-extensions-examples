@@ -1,3 +1,5 @@
 dependencies {
-	testCompile group: 'org.gerzog.spock-extensions',	name: 'spock-modelcitizen',	version: spockModelcitizenVersion
+	compile project(':spock-extensions-examples-base')
+	
+	testCompile group: 'org.gerzog.spock-extensions',	name: 'spock-modelcitizen',	version: spockModelcitizenVersion, changing: true
 }
