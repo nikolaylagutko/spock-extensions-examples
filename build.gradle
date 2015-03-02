@@ -1,23 +1,26 @@
-apply plugin: 'java'
-apply plugin: 'groovy'
-
-apply from: 'ide-java.gradle'
-
-repositories {
-	jcenter()
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'groovy'
 	
-	maven {
-		name 'JFrog OSS snapshot repo'
-		url  'https://oss.jfrog.org/oss-snapshot-local/'
+	apply from: rootProject.file('ide-java.gradle')
+	
+	repositories {
+		jcenter()
+		
+		maven {
+			name 'JFrog OSS snapshot repo'
+			url  'https://oss.jfrog.org/oss-snapshot-local/'
+		}
 	}
-}
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-dependencies {
-	testCompile	group: 'org.gerzog.spock-extensions',	name: 'spock-modelcitizen',	version: '0.1.0-SNAPSHOT'
-	testCompile	group: 'org.gerzog.spock-extensions',	name: 'spock-injectmocks',	version: '0.1.0-SNAPSHOT'
+	
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	
+	dependencies {
+		testCompile group: 'org.spockframework',	name: 'spock-core',	version: spockVersion
+		testCompile group: 'junit',					name: 'junit',							version: junitVersion
+		testCompile group: 'org.codehaus.groovy',	name: 'groovy-all',						version: groovyVersion
+	}
 }
 
 task wrapper(type: Wrapper) {

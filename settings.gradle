@@ -1,0 +1,1 @@
+include 'spock-extensions-examples-base', 'spock-injectmocks-examples', 'spock-modelcitizen-examples'
