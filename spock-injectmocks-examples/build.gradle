@@ -1,3 +1,3 @@
 dependencies {
-	testCompile group: 'org.gerzog.spock-extensions',	name: 'spock-injectmocks',	version: spockInjecomocksVersion
+	testCompile group: 'org.gerzog.spock-extensions',	name: 'spock-injectmocks',	version: spockInjecomocksVersion, changing: true
 }
