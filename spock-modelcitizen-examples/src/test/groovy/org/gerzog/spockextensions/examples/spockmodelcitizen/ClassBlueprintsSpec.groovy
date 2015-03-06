@@ -16,7 +16,7 @@
 package org.gerzog.spockextensions.examples.spockmodelcitizen
 
 import org.gerzog.spock.modelcitizen.api.Model
-import org.gerzog.spock.modelcitizen.api.UseBlueprints
+import org.gerzog.spock.modelcitizen.api.ModelCitizen
 import org.gerzog.spockextensions.examples.base.entity.User
 import org.gerzog.spockextensions.examples.spockmodelcitizen.blueprints.UserBlueprint
 
@@ -26,7 +26,7 @@ import spock.lang.Specification
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-@UseBlueprints(classes = UserBlueprint)
+@ModelCitizen(classes = UserBlueprint)
 class ClassBlueprintsSpec extends Specification {
 
 	@Model

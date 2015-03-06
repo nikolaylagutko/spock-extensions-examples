@@ -15,9 +15,9 @@
  */
 package org.gerzog.spockextensions.examples.spockmodelcitizen
 
-import org.gerzog.spock.modelcitizen.api.Model
 import org.gerzog.spock.modelcitizen.api.ModelCitizen
 import org.gerzog.spockextensions.examples.base.entity.User
+import org.gerzog.spockextensions.examples.spockmodelcitizen.blueprints.UserBlueprint
 
 import spock.lang.Specification
 
@@ -25,11 +25,14 @@ import spock.lang.Specification
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-@ModelCitizen(packagesToScan = 'org.gerzog.spockextensions.examples.spockmodelcitizen.blueprints')
-class PackageBlueprintsSpec extends Specification {
+@ModelCitizen(classes = UserBlueprint)
+class CustomModelMethodSpec extends Specification {
 
-	@Model
 	User user
+
+	def setup() {
+		user = model(User)
+	}
 
 	def "verify user was created"() {
 		expect:
