@@ -19,26 +19,6 @@ package org.gerzog.spockextensions.examples.base.entity;
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-public class User extends AbstractEntity {
-
-	private String firstName;
-
-	private String lastName;
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(final String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(final String lastName) {
-		this.lastName = lastName;
-	}
+public class AbstractEntity {
 
 }

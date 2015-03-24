@@ -19,7 +19,7 @@ package org.gerzog.spockextensions.examples.base.entity;
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-public class Profile {
+public class Profile extends AbstractEntity {
 
 	private String name;
 
