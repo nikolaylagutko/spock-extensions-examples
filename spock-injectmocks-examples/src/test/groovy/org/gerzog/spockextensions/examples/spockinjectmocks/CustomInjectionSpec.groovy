@@ -16,8 +16,7 @@
 package org.gerzog.spockextensions.examples.spockinjectmocks
 
 import org.apache.commons.lang3.reflect.FieldUtils
-import org.gerzog.spock.injectmock.api.InjectMock
-import org.gerzog.spock.injectmock.api.InstantiationType
+import org.gerzog.spock.injectmock.api.Injectable
 import org.gerzog.spockextensions.examples.base.repository.IUserRepository
 import org.gerzog.spockextensions.examples.base.repository.impl.UserRepositoryImpl
 import org.gerzog.spockextensions.examples.base.service.impl.UserServiceImpl
@@ -32,11 +31,11 @@ import spock.lang.Subject
 class CustomInjectionSpec extends Specification {
 
 	@Subject
-	def userService = new UserServiceImpl()
+	UserServiceImpl userService
 
 	def repoValue = new UserRepositoryImpl()
 
-	@InjectMock(instantiateAs = InstantiationType.CUSTOM)
+	@Injectable
 	IUserRepository userRepository = repoValue
 
 	def "check user repository injected"() {

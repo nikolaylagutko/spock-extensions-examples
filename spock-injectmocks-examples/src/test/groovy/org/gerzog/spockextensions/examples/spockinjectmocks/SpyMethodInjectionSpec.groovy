@@ -16,10 +16,9 @@
 package org.gerzog.spockextensions.examples.spockinjectmocks
 
 import org.apache.commons.lang3.reflect.FieldUtils
-import org.gerzog.spock.injectmock.api.InjectMock
-import org.gerzog.spock.injectmock.api.InstantiationType
+import org.gerzog.spock.injectmock.api.InjectableSpy
 import org.gerzog.spockextensions.examples.base.repository.impl.UserRepositoryImpl
-import org.gerzog.spockextensions.examples.base.service.impl.AnotherUserServiceImpl
+import org.gerzog.spockextensions.examples.base.service.impl.UserServiceImpl
 
 import spock.lang.Specification
 import spock.lang.Subject
@@ -31,9 +30,9 @@ import spock.lang.Subject
 class SpyMethodInjectionSpec extends Specification {
 
 	@Subject
-	def userService = new AnotherUserServiceImpl()
+	UserServiceImpl userService
 
-	@InjectMock(instantiateAs = InstantiationType.SPY)
+	@InjectableSpy
 	UserRepositoryImpl userRepository
 
 	def "check user repository injected"() {

@@ -16,9 +16,8 @@
 package org.gerzog.spockextensions.examples.spockinjectmocks
 
 import org.apache.commons.lang3.reflect.FieldUtils
-import org.gerzog.spock.injectmock.api.InjectableMock
-import org.gerzog.spockextensions.examples.base.entity.User
-import org.gerzog.spockextensions.examples.base.repository.IUserRepository
+import org.gerzog.spock.injectmock.api.InjectableStub
+import org.gerzog.spockextensions.examples.base.repository.impl.UserRepositoryImpl
 import org.gerzog.spockextensions.examples.base.service.impl.UserServiceImpl
 
 import spock.lang.Specification
@@ -28,36 +27,24 @@ import spock.lang.Subject
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-class MockFieldInjectionSpec extends Specification {
+class StubMethodInjectionSpec extends Specification {
 
 	@Subject
 	UserServiceImpl userService
 
-	@InjectableMock
-	IUserRepository userRepository
+	@InjectableStub
+	UserRepositoryImpl userRepository
 
 	def "check user repository injected"() {
 		expect:
 		FieldUtils.readDeclaredField(userService, 'userRepository', true) != null
 	}
 
-	def "check mocking ability"() {
-		when:
-		userService.findUser()
-
-		then:
-		1 * userRepository.findUser()
-	}
-
 	def "check mocking result value"() {
-		setup:
-		def user = new User()
-		userRepository.findUser() >> user
-
 		when:
 		def result = userService.findUser()
 
 		then:
-		user == result
+		result != null
 	}
 }
