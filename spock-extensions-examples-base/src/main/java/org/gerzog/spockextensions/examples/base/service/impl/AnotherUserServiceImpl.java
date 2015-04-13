@@ -18,19 +18,15 @@ package org.gerzog.spockextensions.examples.base.service.impl;
 import org.gerzog.spockextensions.examples.base.entity.User;
 import org.gerzog.spockextensions.examples.base.repository.IUserRepository;
 import org.gerzog.spockextensions.examples.base.service.IUserService;
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-@Service
 public class AnotherUserServiceImpl implements IUserService {
 
 	private IUserRepository userRepository;
 
-	@Required
 	public void setUserRepository(final IUserRepository userRepository) {
 		this.userRepository = userRepository;
 	}

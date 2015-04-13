@@ -17,13 +17,11 @@ package org.gerzog.spockextensions.examples.base.repository.impl;
 
 import org.gerzog.spockextensions.examples.base.entity.User;
 import org.gerzog.spockextensions.examples.base.repository.IUserRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-@Repository
 public class UserRepositoryImpl implements IUserRepository {
 
 	@Override

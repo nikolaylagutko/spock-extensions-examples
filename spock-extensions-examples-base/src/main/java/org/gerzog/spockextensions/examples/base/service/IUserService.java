@@ -16,13 +16,11 @@
 package org.gerzog.spockextensions.examples.base.service;
 
 import org.gerzog.spockextensions.examples.base.entity.User;
-import org.springframework.stereotype.Service;
 
 /**
  * @author Nikolay Lagutko (nikolay.lagutko@mail.com)
  *
  */
-@Service
 public interface IUserService {
 
 	User findUser();
